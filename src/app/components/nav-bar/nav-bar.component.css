@@ -4,3 +4,32 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+.nav-text-size{
+  font-size: 21px;
+}
+
+nav{
+  background-color: #11111f !important;
+  opacity: 0.90;
+}
+
+.navbar .container-fluid{
+  justify-content: space-around !important;
+}
+
+.bg-dark {
+  --bs-bg-opacity: 0.85;
+}
+
+#logo-style{
+  width: 22%;
+  height: auto;
+}
+
+#videoBG {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: auto;
+}
