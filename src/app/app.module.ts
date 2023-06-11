@@ -10,6 +10,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { GamesComponent } from './components/games/games.component';
+import { authInterceptorProviders } from './authentication/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { RegisterComponent } from './components/register/register.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    GamesComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ import { RegisterComponent } from './components/register/register.component';
     NgbModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

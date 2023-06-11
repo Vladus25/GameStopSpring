@@ -1,0 +1,28 @@
+<div class="container top-space">
+  <section>
+    <div>
+      <h1>Best-Game</h1>
+    </div>
+
+    <div class="d-flex flex-wrap justify-content-between">
+      <div class="card col-4" *ngFor="let game of GameAll">
+        <img src="{{game.img}}" style="border-radius: 10px 10px 0px 0px" alt="">
+        <span class="rating position-absolute top-0 start-0 bg-success text-white rounded-pill-oval px-2 py-1">{{game.rating}}</span>
+        <div class="card-body text-white">
+          <h4 class="card-title">{{game.nome}}</h4>
+          <p class="card-text">
+            <ng-container *ngFor="let genre of game.genere; let last = last">
+              <span>{{genre.nome}}</span>
+              <ng-container *ngIf="!last">, </ng-container>
+              <ng-container *ngIf="last">.</ng-container>
+            </ng-container>
+          </p>
+          <p class="card-text">Uscita: {{game.annoRilascio}}</p>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+</div>
+

@@ -11,4 +11,8 @@ export class ConnectionDBService {
 
   constructor(private http: HttpClient) { }
 
+  getAllGames(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/games/all`);
+  }
+
 }
