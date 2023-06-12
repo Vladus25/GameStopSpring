@@ -1,0 +1,41 @@
+<div class="container-dialog" *ngIf="Games.length > 0">
+  <h3 class="text-center">Riepilogo Games</h3>
+  <div class="table-header">
+    <div class="column">Cover</div>
+    <div class="column">Nome</div>
+    <div class="column">Prezzo</div>
+    <div class="column">Quantità</div>
+    <div class="column">Totale</div>
+    <div class="column">Rimuovi</div>
+  </div>
+  <div class="product-info" *ngFor="let game of Games; let i  = index">
+    <div class="table-row">
+      <div class="column">
+        <img [src]="game?.img" alt="game" class="img-circle" style="width: 200px;">
+      </div>
+      <div class="column">{{game?.nome}}</div>
+      <div class="column">${{game?.prezzo}}</div>
+      <div class="column">
+        <div class="column">
+          <div class="input-container">
+            <input [(ngModel)]="game.quantity" [ngModelOptions]="{standalone: true}" min="1" type="number" value="1" name="" class="form-control w-50" />
+          </div>
+        </div>
+      </div>
+      <div class="column">${{ game.quantity * game?.prezzo | number : '1.2-2'}}</div>
+      <div class="column">
+        <button (click)="removeFromCart(game)" type="button" class="btn btn-danger mt-3">Remove from cart</button>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="text-center">
+    <button (click)="checkout()" class="btn btn-outline-success" style="margin-right: 20px;">Pay {{total | currency}}</button>
+    <button class="btn btn-outline-danger" (click)="cancel()">Chiudi</button>
+  </div>
+</div>
+
+<div class="container-dialog text-center" *ngIf="Games.length == 0">
+  <h1>Per il momento il carello e vuoto.</h1>
+  <button class="btn btn-outline-success" (click)="cancel()">Chiudi</button>
+</div>

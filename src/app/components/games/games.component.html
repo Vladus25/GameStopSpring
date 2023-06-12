@@ -1,15 +1,24 @@
 <div class="container top-space">
+
+  <!-- Carello -->
+  <div class="cart-container">
+    <i-bs style="color: green;" name="cart-check-fill" width="30" height="30" (click)="openCartDialog()"></i-bs>
+    <span class="cart-badge">{{ cartItemCount }}</span>
+  </div>
+
   <section>
+
     <div>
       <h1>Best-Game</h1>
     </div>
-
+    <!-- Elenco di tutti Giochi -->
     <div class="d-flex flex-wrap justify-content-between">
-      <div class="card col-4" *ngFor="let game of GameAll">
-        <img src="{{game.img}}" style="border-radius: 10px 10px 0px 0px" alt="">
+      <div class="card col-4 " *ngFor="let game of GameAll">
+        <img src="{{game.img}}" style="border-radius: 10px 10px 0px 0px" (click)="showGameDetails(game.nome)" style="cursor: pointer;">
         <span class="rating position-absolute top-0 start-0 bg-success text-white rounded-pill-oval px-2 py-1">{{game.rating}}</span>
+        <span class="price position-absolute top-0 end-0 text-white rounded-pill-oval px-2 py-1" style="background-color: #ff1e00;">{{ game.prezzo === 0 ? 'Free' : '$' + game.prezzo }}</span>
         <div class="card-body text-white">
-          <h4 class="card-title">{{game.nome}}</h4>
+          <h4 class="card-title">{{game.nome}} {{game.prezzo}}</h4>
           <p class="card-text">
             <ng-container *ngFor="let genre of game.genere; let last = last">
               <span>{{genre.nome}}</span>
@@ -17,12 +26,13 @@
               <ng-container *ngIf="last">.</ng-container>
             </ng-container>
           </p>
-          <p class="card-text">Uscita: {{game.annoRilascio}}</p>
+          <div class="d-flex flex-wrap justify-content-between">
+            <p class="card-text">Uscita: {{game.annoRilascio}}</p>
+            <button (click)="addToCart(game)" type="button" class="btn btn-outline-success">Add to Cart</button>
+          </div>
         </div>
       </div>
     </div>
-
-
   </section>
 </div>
 

@@ -1,0 +1,44 @@
+<div class="content-center container position-absolute top-0 start-50 translate-middle">
+  <div class="text-center">
+    <div class="container" style="color: white">
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <div class="game-details p-12">
+            <h1 class="text-center mb-4">{{ Game.nome }}</h1>
+            <div class="text-center">
+              <img [src]="Game.img" alt="game" class=" game-image" style="width: 400px;">
+            </div>
+            <p class="mt-4">{{ Game.descrizione }}</p>
+            <div class="row mt-4">
+              <div class="col-md-6">
+                <div class="game-info">
+                  <p><strong>Casa produttrice:</strong> {{ Game.casaProduttrice.nome }}</p>
+                  <p><strong>Anno di rilascio:</strong> {{ Game.annoRilascio }}</p>
+                  <p><strong>Prezzo:</strong> {{ Game.prezzo === 0 ? 'Free' : '$' + Game.prezzo }}</p>
+                  <p><strong>Rating:</strong> {{ Game.rating }}</p>
+                  <p><strong>Numero di giocatori:</strong> {{ Game.numeroGiocatori }}</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="game-info">
+                  <p><strong>Fornitori:</strong></p>
+                  <ul class="list-unstyled">
+                    <li *ngFor="let fornitore of Game.fornitore">{{ fornitore.nome }}</li>
+                  </ul>
+                  <p><strong>Generi:</strong></p>
+                  <ul class="list-unstyled">
+                    <li *ngFor="let genere of Game.genere">{{ genere.nome }}</li>
+                  </ul>
+                  <p><strong>Piattaforme:</strong></p>
+                  <ul class="list-unstyled">
+                    <li *ngFor="let piattaforma of Game.piattaforma">{{ piattaforma.tipo }} ({{ piattaforma.numeroGiocatori }} giocatori)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

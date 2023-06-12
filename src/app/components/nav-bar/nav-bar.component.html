@@ -40,12 +40,16 @@
 
     <!-- Navbar per Profilo ed LogOut -->
     <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-      <li class="nav-item" *ngIf="isLoggedIn">
-        <a href="/profile" class="nav-link" routerLink="/Profile">{{username}}</a>
+      <li class="nav-item">
+        <a class="nav-link nav-text-size" routerLink="/Home">Home</a>
       </li>
       <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">LogOut</a>
+        <a class="nav-link nav-text-size" routerLink="/Games">Games</a>
+      </li>
+      <li class="nav-item">
+        <a href class="nav-link nav-text-size" (click)="logout()">LogOut</a>
       </li>
     </ul>
+
   </div>
 </nav>

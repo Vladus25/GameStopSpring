@@ -33,4 +33,5 @@ export class NavBarComponent {
     this.tokenStorageService.signOut();
     window.location.reload();
   }
+
 }
