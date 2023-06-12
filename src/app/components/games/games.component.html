@@ -9,12 +9,12 @@
   <section>
 
     <div>
-      <h1>Best-Game</h1>
+      <h1  class="text-white text-center" style="background-color: #11111f;">Games</h1>
     </div>
     <!-- Elenco di tutti Giochi -->
     <div class="d-flex flex-wrap justify-content-between">
       <div class="card col-4 " *ngFor="let game of GameAll">
-        <img src="{{game.img}}" style="border-radius: 10px 10px 0px 0px" (click)="showGameDetails(game.nome)" style="cursor: pointer;">
+        <img src="{{game.img}}" style="border-radius: 10px 10px 0px 0px; cursor: pointer;" (click)="showGameDetails(game.nome)">
         <span class="rating position-absolute top-0 start-0 bg-success text-white rounded-pill-oval px-2 py-1">{{game.rating}}</span>
         <span class="price position-absolute top-0 end-0 text-white rounded-pill-oval px-2 py-1" style="background-color: #ff1e00;">{{ game.prezzo === 0 ? 'Free' : '$' + game.prezzo }}</span>
         <div class="card-body text-white">
